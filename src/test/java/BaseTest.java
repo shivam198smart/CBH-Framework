@@ -5,15 +5,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import Utilities.Constants;
+
 public class BaseTest {
 
     public static WebDriver driver;
 
     @BeforeTest
-    public void beforeTest() {
-
-        String browser = System.getProperty("browser");
-
+    public void setUp() {
+        String browser = Constants.browserName;
         if (browser != null) {
             if (browser.equals("chrome")) {
                 WebDriverManager.chromedriver().setup();
@@ -32,7 +32,7 @@ public class BaseTest {
     }
 
     @AfterTest
-    public void afterTest() {
+    public void tearDown() {
         driver.quit();
     }
 }
