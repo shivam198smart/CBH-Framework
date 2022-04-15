@@ -56,14 +56,13 @@ public class AmazonPage extends BasePage {
         click(tvAndAppliancesButton);
     }
 
-    public void clickTelevisionButton() {
+    public void clickTelevisionButtonSelectSamsung() {
         click(televisionButton);
         click(samsungCheckBox);
     }
 
     public void clickSecondHighestProduct() {
         wait.until(ExpectedConditions.visibilityOf(resultsPage));
-        Assert.isTrue(resultsPage.isDisplayed(), "Result page is not displayed.");
         Map<Integer, String> products= new TreeMap<>();
         int numberOfProductsOnPage = driver.findElements(By.xpath(NUMBER_OF_PRODUCTS)).size();
         for(int i=1; i<=numberOfProductsOnPage; i++) {
